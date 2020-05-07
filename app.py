@@ -39,24 +39,4 @@ def handle_message(event):
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-
-    
-mqtt_broker = "broker.mqtt-dashboard.com"
-mqtt_port = 1883
-
-uid = 'Uc791e422591cfd25826415ce497c0847'
-topic = "esp32/te/python"
-
-def on_connect(client,data,flags,rc):
-    client.subscribe(topic)
-
-def on_message(client,data,msg):
-    line_bot_api.push_message(uid,TextSendMessage(text=str(msg.payload)))
-
-client = mqtt.Client()
-client.on_connect = on_connect
-client.on_message = on_message
-client.connect(mqtt_broker,mqtt_port)
-
-client.loop_forever()   
+    app.run(host='0.0.0.0', port=port) 
