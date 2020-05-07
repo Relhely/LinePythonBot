@@ -44,7 +44,6 @@ if __name__ == "__main__":
     
 mqtt_broker = "broker.mqtt-dashboard.com"
 mqtt_port = 1883
-keepalive=60
 
 uid = 'Uc791e422591cfd25826415ce497c0847'
 topic = "esp32/te/python"
@@ -58,6 +57,6 @@ def on_message(client,data,msg):
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-client.connect(mqtt_broker,mqtt_port,keepalive)
+client.connect(mqtt_broker,mqtt_port)
 
 client.loop_forever()   
