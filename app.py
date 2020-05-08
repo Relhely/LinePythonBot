@@ -36,7 +36,28 @@ def handle_message(event):
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
 
+pyline = Flask(__name__)
+pyline.config["MQTT_BROKER_URL"] = "broker.mqtt-dashboard.com"
+pyline.config['MQTT_BROKER_PORT'] = "1883"
+pyline.config['MQTT_REFRESH_TIME'] = 1.0 
+mqtt = Mqtt(pyline)
+
+uid = 'Uc791e422591cfd25826415ce497c0847'
+
+@mqtt.on_connect()
+def handle_connect(client, userdata, flags, rc):
+    mqtt.subscribe("esp32/te/python")
+
+@mqtt.on_message()
+def handle_mqtt_message(client, userdata, message):
+    payload = message.payload.decode()
+    line_bot_api.push_message(uid,TextSendMessage(text=str(message.payload))
+
+                              
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port) 
+    pyline.run(debug=True)
+                              
+                              
