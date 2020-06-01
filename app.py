@@ -18,7 +18,7 @@ line_bot_api = LineBotApi('WBjq5jKsza23Sj3SEzE5A9S316jvk9vweXs3Uh+DTWGAgxzuaxOa3
 # Channel Secret
 handler = WebhookHandler('fa6caf20fa1aadc77f8a11cad076b874')
 
-def serach_data():
+def serach_temp_data():
     auth_json_path = 'mykey.json'
     gss_scopes = ['https://spreadsheets.google.com/feeds']
     credentials = ServiceAccountCredentials.from_json_keyfile_name(auth_json_path,gss_scopes)
@@ -28,6 +28,18 @@ def serach_data():
     spreadsheet_key = '1llgK0kQM7wWoAJ3DlR3l5adk-jiWT4z1u7RS-3PFuSw'
     sheet = gss_client.open_by_key(spreadsheet_key).sheet1
     qwe = sheet.acell('A2').value
+    return qwe
+
+def serach_humid_data():
+    auth_json_path = 'mykey.json'
+    gss_scopes = ['https://spreadsheets.google.com/feeds']
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(auth_json_path,gss_scopes)
+    gss_client = gspread.authorize(credentials)
+
+    #開啟 Google Sheet 資料表
+    spreadsheet_key = '1llgK0kQM7wWoAJ3DlR3l5adk-jiWT4z1u7RS-3PFuSw'
+    sheet = gss_client.open_by_key(spreadsheet_key).sheet1
+    qwe = sheet.acell('B2').value
     return qwe
 
 # 監聽所有來自 /callback 的 Post Request
@@ -49,8 +61,12 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
-    if(text == "查詢"):
-        reply_text = serach_data()
+    if(text == "查詢溫度"):
+        reply_text = serach_temp_data()
+    elif(text == "查詢濕度"):
+        reply_text = serach_humid_data()
+    elif(text == "抽卡"):
+        reply_text = serach_temp_data()
     else:
         reply_text = text
         
