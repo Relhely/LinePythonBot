@@ -36,7 +36,8 @@ def callback():
 def handle_message(event):
     message = TextSendMessage(text=event.message.text)
     if (message == "查詢"):
-        line_bot_api.reply_message(event.reply_token, "測試中")
+        message = "123456"
+        line_bot_api.reply_message(event.reply_token, message)
     else:
         line_bot_api.reply_message(event.reply_token, message)
 
