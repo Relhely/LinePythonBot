@@ -31,7 +31,7 @@ def serach_temp_data():
     sheet = gss_client.open_by_key(spreadsheet_key).sheet1
     data = sheet.acell('A2').value
     now = sheet.acell('C2').value
-    qwe = "溫度 : " + data + " °C" + "\n\n" + "資料更新時間 : " + str(now)
+    qwe = "溫度 : " + data + " 度" + "\n\n" + "資料更新時間 : " + str(now)
     
     return qwe
 
