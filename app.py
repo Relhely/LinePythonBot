@@ -30,8 +30,8 @@ def serach_temp_data():
     spreadsheet_key = '1llgK0kQM7wWoAJ3DlR3l5adk-jiWT4z1u7RS-3PFuSw'
     sheet = gss_client.open_by_key(spreadsheet_key).sheet1
     data = sheet.acell('A2').value
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    qwe = "溫度 : "+ "\n\n" + "資料更新時間 : " + str(now)
+    now = sheet.acell('C2').value
+    qwe = "溫度 : " + data + "\n\n" + "資料更新時間 : " + str(now)
     
     return qwe
 
@@ -44,7 +44,9 @@ def serach_humid_data():
     #開啟 Google Sheet 資料表
     spreadsheet_key = '1llgK0kQM7wWoAJ3DlR3l5adk-jiWT4z1u7RS-3PFuSw'
     sheet = gss_client.open_by_key(spreadsheet_key).sheet1
-    qwe = sheet.acell('B2').value
+    data = sheet.acell('B2').value
+    now = sheet.acell('C2').value
+    qwe = "濕度 : " + data + "\n\n" + "資料更新時間 : " + str(now)
     return qwe
 
 # 監聽所有來自 /callback 的 Post Request
