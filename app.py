@@ -8,6 +8,8 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
+import time
+from datetime import datetime
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -27,7 +29,10 @@ def serach_temp_data():
     #開啟 Google Sheet 資料表
     spreadsheet_key = '1llgK0kQM7wWoAJ3DlR3l5adk-jiWT4z1u7RS-3PFuSw'
     sheet = gss_client.open_by_key(spreadsheet_key).sheet1
-    qwe = sheet.acell('A2').value
+    data = sheet.acell('A2').value
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    qwe = "溫度 : "+ "data" + str(now)
+    
     return qwe
 
 def serach_humid_data():
