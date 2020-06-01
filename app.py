@@ -35,7 +35,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = TextSendMessage(text=event.message.text)
-    if (messenge == "查詢"):
+    if (message == "查詢"):
         line_bot_api.reply_message(event.reply_token, "測試中")
     else:
         line_bot_api.reply_message(event.reply_token, message)
