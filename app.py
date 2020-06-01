@@ -34,11 +34,11 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    asd = event.message.text
-    if(asd == "/查詢"):
-        
+    text = event.message.text
+    if(text == "查詢"):
+        reply_text = "123"
     
-    message = TextSendMessage(text=event.message.text)
+    message = TextSendMessage(reply_text)
     line_bot_api.reply_message(event.reply_token, message)
 
 
