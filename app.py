@@ -26,6 +26,7 @@ def serach_data():
 
     #開啟 Google Sheet 資料表
     spreadsheet_key = '1llgK0kQM7wWoAJ3DlR3l5adk-jiWT4z1u7RS-3PFuSw'
+    sheet = gss_client.open_by_key(spreadsheet_key).sheet1
     qwe = sheet.cell(1, 2).value
     return qwe
 
