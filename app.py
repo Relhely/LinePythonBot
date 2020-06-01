@@ -72,6 +72,8 @@ def handle_message(event):
         reply_text = serach_humid_data()
     elif(text == "抽卡"):
         reply_text = serach_temp_data()
+    elif(text == "!連結"):
+        reply_text = "此次期末Code" + "還沒處理好"
     else:
         reply_text = text
         
