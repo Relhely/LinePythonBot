@@ -1,6 +1,4 @@
 line-bot-sdk
 flask
-paho-mqtt
-Flask-MQTT
 gspread
 oauth2client
