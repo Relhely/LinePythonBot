@@ -3,4 +3,4 @@ flask
 paho-mqtt
 Flask-MQTT
 gspread
-oauth2client.service_account
+oauth2client
