@@ -34,12 +34,12 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    asd = event.message.text
+    if(asd == "/查詢"):
+        
+    
     message = TextSendMessage(text=event.message.text)
-    if (message == "查詢"):
-        message = "123456"
-        line_bot_api.reply_message(event.reply_token, message)
-    else:
-        line_bot_api.reply_message(event.reply_token, message)
+    line_bot_api.reply_message(event.reply_token, message)
 
 
 uid = 'Uc791e422591cfd25826415ce497c0847'
