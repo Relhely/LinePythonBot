@@ -1,6 +1,4 @@
 from flask import Flask, request, abort
-from flask_mqtt import Mqtt
-
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -31,7 +29,7 @@ def serach_temp_data():
     sheet = gss_client.open_by_key(spreadsheet_key).sheet1
     data = sheet.acell('A2').value
     now = sheet.acell('C2').value
-    qwe = "溫度 : " + data + "\n\n" + "資料更新時間 : " + str(now)
+    qwe = "溫度 : " + data + " °C\n\n" + "資料更新時間 : " + str(now)
     
     return qwe
 
@@ -46,7 +44,7 @@ def serach_humid_data():
     sheet = gss_client.open_by_key(spreadsheet_key).sheet1
     data = sheet.acell('B2').value
     now = sheet.acell('C2').value
-    qwe = "濕度 : " + data + "\n\n" + "資料更新時間 : " + str(now)
+    qwe = "濕度 : " + data + " %\n\n" + "資料更新時間 : " + str(now)
     return qwe
 
 # 監聽所有來自 /callback 的 Post Request
