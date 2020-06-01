@@ -26,7 +26,7 @@ def serach_data():
 
     #開啟 Google Sheet 資料表
     spreadsheet_key = '1llgK0kQM7wWoAJ3DlR3l5adk-jiWT4z1u7RS-3PFuSw'
-    return sheet.row_values(2)
+    return sheet.acell('B1').value
 
 
 # 監聽所有來自 /callback 的 Post Request
