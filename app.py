@@ -9,6 +9,7 @@ from linebot.models import *
 import time
 from datetime import datetime
 import gspread
+import random
 from oauth2client.service_account import ServiceAccountCredentials
 
 app = Flask(__name__)
@@ -47,6 +48,18 @@ def serach_humid_data():
     qwe = "濕度 : " + data + " %\n\n" + "資料更新時間 : " + str(now)
     return qwe
 
+def prize():
+    miss = 0
+    win = 0
+    for i in range(10):
+        a = random.randint(0,999)
+        if a < 30 :
+            win = win+1
+        else :
+            miss = miss +1
+    return "機率3%，你獲得" + win +"隻限定"     
+
+
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -71,7 +84,7 @@ def handle_message(event):
     elif(text == "查詢濕度"):
         reply_text = serach_humid_data()
     elif(text == "抽卡"):
-        reply_text = serach_temp_data()
+        reply_text = prize()
     elif(text == "!連結"):
         reply_text = "此次期末Code" + "還沒處理好"
     else:
