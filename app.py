@@ -68,6 +68,24 @@ def prize():
     else:
         return "彩機率3%、金機率10%\n\n此為十連抽" + "\n你獲得 : " + str(win) +"彩 "+str(glod)+"金 " + str(miss) + "銀"    
 
+def wcat():
+    gray = 0
+    gold = 0
+    ggold = 0
+    win = 0
+    for i in range(10):
+        a = random.randint(0,999999)
+        if (a<510000):
+            gold = gold + 1
+            
+            if a < 100000 :
+                if a < 28750:
+                    win = win+1
+                else:
+                    ggold = ggold+1  
+        else :
+            gray = gray + 1
+    return str(gold) + "金袍" + str(gray) + "銀袍"  + "\n" + "(" + str(win) + "限 " + str(ggold) + "選拔" + ")"    
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -94,6 +112,8 @@ def handle_message(event):
         reply_text = serach_humid_data()
     elif(text == "抽卡"):
         reply_text = prize()
+    elif(text == "A抽卡"):
+        reply_text = wcat()
     #else:
       #  reply_text = text
         
