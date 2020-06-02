@@ -53,11 +53,14 @@ def prize():
     win = 0
     for i in range(10):
         a = random.randint(0,999)
-        if a < 30 :
-            win = win+1
+        if a < 100 :
+            if a < 30:
+                win = win+1
+            else:
+                glod = glod+1
         else :
             miss = miss +1
-    return "機率3%，此為十連抽" + "\n\n你獲得 : " + str(win) +"隻限定"     
+    return "機率3%，此為十連抽" + "\n\n你獲得 : " + str(win) +"隻限定和"+str(glod)+"金"     
 
 
 # 監聽所有來自 /callback 的 Post Request
@@ -87,8 +90,8 @@ def handle_message(event):
         reply_text = prize()
     elif(text == "!連結"):
         reply_text = "此次期末Code" + "還沒處理好"
-    else:
-        reply_text = text
+    #else:
+      #  reply_text = text
         
     
     message = TextSendMessage(reply_text)
