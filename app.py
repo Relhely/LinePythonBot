@@ -53,15 +53,20 @@ def prize():
     win = 0
     glod = 0
     for i in range(10):
-        a = random.randint(0,999)
-        if a < 600 :
-            if a < 30:
+        a = random.randint(0,9999)
+        if a < 1000 :
+            if a < 300:
                 win = win+1
             else:
                 glod = glod+1
+                
         else :
             miss = miss +1
-    return "機率3%，此為十連抽" + "\n\n你獲得 : " + str(win) +"隻限定和"+str(glod)+"金"     
+
+    if (miss == 10):
+        return "彩機率3%、金機率10%\n\n此為十連抽" + "\n你獲得 : 0彩 1金 9銀(保底)"
+    else:
+        return "彩機率3%、金機率10%\n\n此為十連抽" + "\n你獲得 : " + str(win) +"彩 "+str(glod)+"金 " + str(miss) + "銀"    
 
 
 # 監聽所有來自 /callback 的 Post Request
@@ -89,8 +94,11 @@ def handle_message(event):
         reply_text = serach_humid_data()
     elif(text == "抽卡"):
         reply_text = prize()
-    elif(text == "!連結"):
-        reply_text = "此次期末Code" + "還沒處理好"
+    elif(text == "測試"):
+        if(event.reply_token == uid):
+            reply_text = 123
+        else:
+            reply_text = 456
     #else:
       #  reply_text = text
         
