@@ -94,11 +94,6 @@ def handle_message(event):
         reply_text = serach_humid_data()
     elif(text == "抽卡"):
         reply_text = prize()
-    elif(text == "測試"):
-        if(event.reply_token == uid):
-            reply_text = 123
-        else:
-            reply_text = 456
     #else:
       #  reply_text = text
         
