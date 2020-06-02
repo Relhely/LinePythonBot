@@ -73,7 +73,7 @@ def wcat():
     gold = 0
     ggold = 0
     win = 0
-    for i in range(10):
+    for i in range(11):
         a = random.randint(0,999999)
         if (a<510000):
             gold = gold + 1
