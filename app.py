@@ -57,7 +57,7 @@ def prize():
             win = win+1
         else :
             miss = miss +1
-    return "機率3%，此為十連抽" + "\n你獲得 : " + win +"隻限定"     
+    return "機率3%，此為十連抽" + "\n\n你獲得 : " + str(win) +"隻限定"     
 
 
 # 監聽所有來自 /callback 的 Post Request
