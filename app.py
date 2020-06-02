@@ -51,6 +51,7 @@ def serach_humid_data():
 def prize():
     miss = 0
     win = 0
+    glod = 0
     for i in range(10):
         a = random.randint(0,999)
         if a < 100 :
