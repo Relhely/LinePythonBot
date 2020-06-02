@@ -54,7 +54,7 @@ def prize():
     glod = 0
     for i in range(10):
         a = random.randint(0,999)
-        if a < 100 :
+        if a < 600 :
             if a < 30:
                 win = win+1
             else:
