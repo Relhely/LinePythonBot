@@ -4,3 +4,5 @@ gspread
 oauth2client
 paho-mqtt	
 Flask-MQTT
+requests
+BeautifulSoup4
