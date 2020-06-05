@@ -135,7 +135,7 @@ def handle_message(event):
         reply_text = prize()
     elif(text == "A抽卡"):
         reply_text = wcat()
-    else:(text == "勤益公告")
+    elif(text == "勤益公告"):
         reply_text = bsnews()
         
     
