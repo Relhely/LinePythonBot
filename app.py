@@ -63,7 +63,8 @@ def handle_message(event):
     uid = event.source.user_id
     if(text == "!抽卡"):
         reply_text = wcat() 
-    elif(text = id查詢)
+    elif(text = "id查詢")
+        
         reply_text = uid
     
     message = TextSendMessage(reply_text)
