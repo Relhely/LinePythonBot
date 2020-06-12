@@ -43,26 +43,6 @@ def wcat():
             gray = gray + 1
     return str(gold) + "金袍" + str(gray) + "銀袍"  + "\n" + "(" + str(win) + "限 " + str(ggold) + "選拔" + ")"    
 
-def wcata():
-    gray = 0
-    gold = 0
-    ggold = 0
-    win = 0
-    for i in range(11):
-        a = random.randint(0,999999)
-        if (a<800000):
-            gold = gold + 1
-            
-            if a < 100000 :
-                if a < 50000:
-                    win = win+1
-                else:
-                    ggold = ggold+1  
-        else :
-            gray = gray + 1
-    return str(gold) + "金袍" + str(gray) + "銀袍"  + "\n" + "(" + str(win) + "限 " + str(ggold) + "選拔" + ")"  
-
-
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -85,8 +65,6 @@ def handle_message(event):
     
     if(text == "!抽卡"):
         reply_text = wcat()
-        if(event.source.user_id == relyID)
-            reply_text = wcata()
     elif(text == "123test"):
         reply_text = event.source.user_id
     
