@@ -22,26 +22,6 @@ line_bot_api = LineBotApi('9yN0HqYn6HPgvl4XOtlwRNsPqIiivFe4O20kr0cFL1iugM6VKMeG6
 # Channel Secret
 handler = WebhookHandler('16f2a338df071ce0e57e8acfecc0e958')
 
-def prize():
-    miss = 0
-    win = 0
-    glod = 0
-    for i in range(10):
-        a = random.randint(0,9999)
-        if a < 1000 :
-            if a < 300:
-                win = win+1
-            else:
-                glod = glod+1
-                
-        else :
-            miss = miss +1
-
-    if (miss == 10):
-        return "彩機率3%、金機率10%\n\n此為十連抽" + "\n你獲得 : 0彩 1金 9銀(保底)"
-    else:
-        return "彩機率3%、金機率10%\n\n此為十連抽" + "\n你獲得 : " + str(win) +"彩 "+str(glod)+"金 " + str(miss) + "銀"    
-
 def wcat():
     gray = 0
     gold = 0
@@ -80,12 +60,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
-    if(text == "抽卡"):
+    if(text == "!抽卡"):
         reply_text = wcat()        
-    elif(text == "A抽卡"):
-        reply_text = prize()
-    
-        
     
     message = TextSendMessage(reply_text)
     line_bot_api.reply_message(event.reply_token, message)
