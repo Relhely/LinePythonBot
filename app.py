@@ -18,38 +18,9 @@ from bs4 import BeautifulSoup
 app = Flask(__name__)
 
 # Channel Access Token
-line_bot_api = LineBotApi('WBjq5jKsza23Sj3SEzE5A9S316jvk9vweXs3Uh+DTWGAgxzuaxOa3xDvaDDWIFN4jmzy+K9n448dFOyz351sbKe8Y0wGuM+IFyHKR+uwOpJ3HW9R+yJH9P1mGTig4p0aOKY2CByJk/5/3PTlGqbdeQdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('9yN0HqYn6HPgvl4XOtlwRNsPqIiivFe4O20kr0cFL1iugM6VKMeG6SwW9IyUBBlsH7TxD0PSN4T0GlXQNCe1fjY7R4v6YLLloz41f/J5b7dzSil1T4GbmsqDXcqzRV3mcagl93XO7Leg4KpeahmBHgdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('fa6caf20fa1aadc77f8a11cad076b874')
-
-def serach_temp_data():
-    auth_json_path = 'mykey.json'
-    gss_scopes = ['https://spreadsheets.google.com/feeds']
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(auth_json_path,gss_scopes)
-    gss_client = gspread.authorize(credentials)
-
-    #開啟 Google Sheet 資料表
-    spreadsheet_key = '1llgK0kQM7wWoAJ3DlR3l5adk-jiWT4z1u7RS-3PFuSw'
-    sheet = gss_client.open_by_key(spreadsheet_key).sheet1
-    data = sheet.acell('A2').value
-    now = sheet.acell('C2').value
-    qwe = "溫度 : " + data + " °C\n\n" + "資料更新時間 : " + str(now)
-    
-    return qwe
-
-def serach_humid_data():
-    auth_json_path = 'mykey.json'
-    gss_scopes = ['https://spreadsheets.google.com/feeds']
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(auth_json_path,gss_scopes)
-    gss_client = gspread.authorize(credentials)
-
-    #開啟 Google Sheet 資料表
-    spreadsheet_key = '1llgK0kQM7wWoAJ3DlR3l5adk-jiWT4z1u7RS-3PFuSw'
-    sheet = gss_client.open_by_key(spreadsheet_key).sheet1
-    data = sheet.acell('B2').value
-    now = sheet.acell('C2').value
-    qwe = "濕度 : " + data + " %\n\n" + "資料更新時間 : " + str(now)
-    return qwe
+handler = WebhookHandler('16f2a338df071ce0e57e8acfecc0e958')
 
 def prize():
     miss = 0
@@ -127,16 +98,10 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
-    if(text == "查詢溫度"):
-        reply_text = serach_temp_data()
-    elif(text == "查詢濕度"):
-        reply_text = serach_humid_data()
-    elif(text == "抽卡"):
-        reply_text = prize()
     elif(text == "A抽卡"):
+        reply_text = prize()
+    elif(text == "抽卡"):
         reply_text = wcat()
-    elif(text == "勤益公告"):
-        reply_text = bsnews()
         
     
     message = TextSendMessage(reply_text)
