@@ -61,24 +61,6 @@ def wcat():
             gray = gray + 1
     return str(gold) + "金袍" + str(gray) + "銀袍"  + "\n" + "(" + str(win) + "限 " + str(ggold) + "選拔" + ")"    
 
-def bsnews():
-    title = []
-    html = []
-    news = "勤益科大首頁公告 : \n\n"
-    r = requests.get('https://www.ncut.edu.tw/')
-    if r.status_code == requests.codes.ok:
-        soup = BeautifulSoup(r.text, 'html.parser')
-        for i in range(1,5):
-            qwe = '#Dyn_2_1 > div > div > section > div > div:nth-child( %d ) > div > div.d-txt > div >a'%(i)
-            stories = soup.select(qwe)
-            for s in stories:
-                title.append(str(s.text.lstrip().rstrip()))
-                html.append(s.get('href'))
-    for x in range(4):
-        news += ("標題 : " + title[x] + '\n' + "連結 : " + html[x] + '\n\n')
-
-    return news
-
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -98,10 +80,11 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
+    if(text == "抽卡"):
+        reply_text = wcat()        
     elif(text == "A抽卡"):
         reply_text = prize()
-    elif(text == "抽卡"):
-        reply_text = wcat()
+    
         
     
     message = TextSendMessage(reply_text)
