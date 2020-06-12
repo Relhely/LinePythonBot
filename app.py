@@ -65,9 +65,7 @@ def handle_message(event):
     
     if(text == "!抽卡"):
         reply_text = wcat()
-    elif(text == "123test"):
-        reply_text = event.source.user_id
-    
+        
     message = TextSendMessage(reply_text)
     line_bot_api.reply_message(event.reply_token, message)
                               
