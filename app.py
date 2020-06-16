@@ -35,7 +35,7 @@ def wcat():
             gold = gold + 1
             
             if a < 100000 :
-                if a < 28750:
+                if a < 35000:
                     win = win+1
                 else:
                     ggold = ggold+1  
