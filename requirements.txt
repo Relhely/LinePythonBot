@@ -6,3 +6,4 @@ paho-mqtt
 Flask-MQTT
 requests
 BeautifulSoup4
+tweepy
