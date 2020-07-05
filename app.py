@@ -6,14 +6,12 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
+
 import time
 from datetime import datetime
-import gspread
-import random
-from oauth2client.service_account import ServiceAccountCredentials
-import requests
-from bs4 import BeautifulSoup
 
+import random
+import tweepy
 
 app = Flask(__name__)
 
@@ -23,6 +21,28 @@ line_bot_api = LineBotApi('9yN0HqYn6HPgvl4XOtlwRNsPqIiivFe4O20kr0cFL1iugM6VKMeG6
 handler = WebhookHandler('16f2a338df071ce0e57e8acfecc0e958')
 
 relyID = 'U5050df24d1dde3fba385d42921f07cc8'
+
+consumer_key = '8fEpJUBsHp5Bz48b6brwOI7aB'
+consumer_secret = 'yrxIDTdZA05z0aNPIt19CrnxGpcxm5HkBMcESCkZple7EbtYvM'
+
+access_token_key = '934954749530587138-XXovDJLiHzOawcrotITi3tZV1KmUY5h'
+access_token_secret = 'DIjvVGfkOknrTubylBMSPlQGI7pE4zE2T85f9Shbw8tor'
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token_key, access_token_secret)
+
+
+def wcat_twitter():
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token_key, access_token_secret)
+    
+    api = tweepy.API(auth)
+    public_tweets = api.user_timeline('wcat_project')
+    
+    a = public_tweets[1].text
+    
+    return a
+
 
 def wcat():
     gray = 0
@@ -65,6 +85,9 @@ def handle_message(event):
     
     if(text == "!抽卡"):
         reply_text = wcat()
+        
+    if(text == "!twitter"):
+        reply_text = wcat_twitter()
         
     message = TextSendMessage(reply_text)
     line_bot_api.reply_message(event.reply_token, message)
