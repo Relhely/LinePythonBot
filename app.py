@@ -39,7 +39,7 @@ def wcat_twitter():
     api = tweepy.API(auth)
     public_tweets = api.user_timeline('wcat_project')
     
-    a = public_tweets[1].text
+    a = public_tweets[0].text
     
     return a
 
