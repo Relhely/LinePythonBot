@@ -1,12 +1,12 @@
 {
-  "type": "service_account",
-  "project_id": "causal-scarab-277116",
-  "private_key_id": "4745181db3525422be4f816f9b9dc4644e143804",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCWkbtq3wFlWnw6\nQjew6ADV9dWUIp/Nuo0e80gsUKKdqKRV5ISsRalOPNS6f6OwJMgsptHo9jmAccpc\nJ5q6qDwq5avpvLaWBoNA3wPqseE5AwBm59YxszJV6/97ntEENNssAJtovjeQ77/5\niDrf0mPWKsE7v54jQukCV2D8GUZCmsCiJr9JyD5BSqp32pMJMzJs+GFr2h+O/zB0\nfN9xyQfPUMB6gpFRSR7M03gk/2KYEbkTsp/PmM7bOJE5l1g/zPFCAb7gF7/3/gHD\nx/Y16OeoqhXjyQSKfV3w5acEjbIeN4l9tzFwZSFCvOBFT+tvnKbAhxDNNkb91djq\nP8i78DaLAgMBAAECggEACh7PfxZwLJTRZsUOozhk3fzBF0zget6AH8VwY3IkC/7K\n1O8gL8ga4iRalBKCOROv1Lh9wW/TW5vKYzlSQBuQt71qObKyfxD+/3w98id0oPVf\nsIsCraKCzp2nNXLuT58R4DpGN9sZNwe2WppagrLMfRewl0iA45Pav4qJ/UfhnhZY\nV8XLqFFu0n/sfZ0wUqkQ5gU5IHoV3mIulU9x4qYSZthd9RS1Moqo1xmNfvoEJg6Q\nSr+gzzVLYIX5X6mpNpIHjNplHwodlz11umGd8QC98aOytb6n7LNjKAvL1RwuC7Ya\n8zlESSDuYLbY1oOPpeV7ERP39KD+HLhuNNNYXMfx+QKBgQDJKRCPhqA+CsJ8zsUq\nxnh7EV4C0dO516SkQzhppjgBnjcD8igO6QpeFt0oJG35HvJhgfsqukOLPu5Z5ffB\niQ/UyPh8fDXAvCpEuCtl7zl+xQHuJJ5lu3DCpD8rd1XERrQxktiQZfyCnmUE//th\nvuC3A1CnUEijK4BrJgBtFI3DdQKBgQC/neyM+TLcPkautFGPjkHcbkBIEfavnLvV\n2soddCmw/7cu/qN8lMUnAi/twXuNne0q+exAjmHXWfWbBC1XHyieT22vVP3MPtif\nPb7VSBku+9qUVuKxNfRDsZmlZoM88ZkoEa2qfZTf3lRlRlpl7C3YddgldTOvOp63\njwoc8IjR/wKBgQC+yfHpDtjAv1fDJCGg9mii4M/3gKd9ZefD2/WPTpVkA3lOhsgz\njBfHMYxEXHjphM6CaNOdrNgPI3rRTOn1Z1fai1oSR4R77ntwffS7U2+Gqrev9I8/\nEc5a7Yj0YtS3ug+BzTMVkYUzJaPOYDM+e9mJ+tzuM5kRGVtNRNe2nX3vWQKBgQCX\nIY3zWpFc2NmS7bHukfssSuD0dwakV/BmqdwEAxzm96mZrUlw9z3QmI8I7TPv7IGl\nBd3qxOIyokdu7op8Tp0Q0ADo6xYKQ/9DCcY8HlOOlSI/IZBGyRFRWwCeTg5wwPVV\nfywEbmw/bfIOtsCR5wf51GiYkqojKQ8KJA2L6cNgLQKBgHm7MT5IsFp4bd90fx7m\n7Pjh0gKgjlANJn3zuVzxfIvv0Deflx7xg0mbsNjIzKvwhG4anQV1oM7IgVvRnsKf\nusatY1Q4S175GJCsQp6FsFIl0aqrgBVakBrCpyRRN0LL4eGjMUCtUuyXpDdpmckU\nqdTTJOQPbjAxM9vCVkwyNsjc\n-----END PRIVATE KEY-----\n",
-  "client_email": "pythonup@causal-scarab-277116.iam.gserviceaccount.com",
-  "client_id": "116119038298416633451",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pythonup%40causal-scarab-277116.iam.gserviceaccount.com"
+  "type": "",
+  "project_id": "",
+  "private_key_id": "",
+  "private_key": "",
+  "client_email": "",
+  "client_id": "",
+  "auth_uri": "",
+  "token_uri": "",
+  "auth_provider_x509_cert_url": "",
+  "client_x509_cert_url": ""
 }
